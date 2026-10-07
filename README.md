@@ -66,7 +66,7 @@ Replace the example hosts with the domain you own. Do not create wildcard DNS re
 
 ## Images, video and search
 
-Image assets and their sources are listed in [IMAGE-SOURCES.md](IMAGE-SOURCES.md). The destination illustrations are generated for this project and are not documentary photographs. Home, Domestic and International use separate image files. The supplied Pathika logo is unchanged.
+Image assets and their sources are listed in [IMAGE-SOURCES.md](IMAGE-SOURCES.md). The site uses 62 distinct 2400 x 1600 photographs with responsive variants. Superseded images and empty asset folders have been removed. The supplied Pathika logo is unchanged.
 
 Pexels video sources are selected and documented, but the video files have not yet been downloaded. Network access and FFmpeg were unavailable in the workspace. Until clips are downloaded, the Domestic and International heroes use local images. On a network-enabled development machine with FFmpeg installed, run `node scripts/download-videos.cjs`, then rebuild. Failed downloads do not add broken video references.
 
@@ -84,3 +84,11 @@ Every deployed HTML, CSS, JavaScript, JSON and image file is public. Do not put 
 - `node --check scripts/build.cjs` and `node --check js/site.js` check JavaScript syntax.
 
 These checks passed in the workspace. Headless Chrome could not start in the available environment, so browser screenshots at the requested viewport sizes and Lighthouse scores have not been verified. The local HTTP smoke test cannot guarantee that a future GitHub account, DNS provider or domain is configured correctly.
+
+## Image and logo refresh verification (2026-10-07)
+
+- Fixed hero overlay stacking so headings and controls remain above the shading; reduced the shading and added a light navigation background.
+- Replaced repeated travel imagery with 62 distinct 2400 x 1600 photographs and 480px, 768px and 1200px variants. Hero image selection also accounts for tall mobile layouts. Source files were checked for duplicate content.
+- Restored the original coloured logo in every footer; the supplied logo file is unchanged.
+- Successful Chromium checks on all seven content pages at 1440 x 960 and 390 x 960: no broken images or horizontal overflow, correct hero stacking and no logo recolouring filter. Screenshots of the heroes, collections and footer were reviewed.
+- The production build passed the existing eight-page checks for both source and dist. Earlier browser-launch failures above no longer block these checks.

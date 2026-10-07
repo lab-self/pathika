@@ -39,7 +39,7 @@ const manifest = JSON.parse(fs.readFileSync(manifestFile, 'utf8'));
 manifest.start_url = siteUrl.pathname;
 fs.writeFileSync(manifestFile, `${JSON.stringify(manifest)}\n`);
 // Only emit a video URL after its local file exists. A failed download leaves the image intact.
-for (const [route, poster] of [['domestic', 'kashmir-lake'], ['international', 'maldives-lagoon']]) {
+for (const [route, poster] of [['domestic', 'domestic/himalayan-valley'], ['international', 'international/swiss-panorama']]) {
   const media = `assets/videos/${route}-journey.mp4`;
   if (!fs.existsSync(path.join(root, media))) continue;
   const page = path.join(dist, route, 'index.html');

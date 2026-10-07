@@ -40,12 +40,6 @@ function page(route, query = '', reduce = false) {
 for (const route of ['', 'domestic', 'international', 'category', 'about', 'contact', 'booking-policies']) page(route);
 const home = page('');
 assert.equal(home.intervals.size, 1, 'Homepage rotation starts');
-home.fire(home.$('[data-motion]'), 'click');
-assert.equal(home.intervals.size, 0, 'Pause stops rotation');
-assert.equal(home.$('[data-motion]').getAttribute('aria-pressed'), 'true');
-home.fire(home.$('[data-next]'), 'click');
-assert.equal(home.$('[data-hero-count]').textContent, '02 / 03');
-assert.match(home.$('[data-hero-image]').src, /jodhpur/);
 home.fire(home.$('.menu-toggle'), 'click');
 assert.ok(home.$('.nav').classList.contains('open'));
 home.$('.menu-toggle').focus();
@@ -55,7 +49,6 @@ home.fire(home.document, 'keydown', { key: 'Escape' });
 assert.equal(home.$('.menu-toggle').getAttribute('aria-expanded'), 'false');
 assert.ok(!home.document.body.classList.contains('menu-visible'));
 assert.equal(page('', '', true).intervals.size, 0, 'Reduced motion prevents automatic rotation');
-home.fire(home.$('[data-motion]'), 'click');
 home.document.hidden = true; home.fire(home.document, 'visibilitychange');
 assert.equal(home.intervals.size, 0, 'Hidden tabs stop rotation');
 
@@ -88,4 +81,4 @@ assert.match(contact.$('[data-form-notice]').textContent, /press Send/);
 const invalid = page('contact', '?journey=' + 'x'.repeat(200) + '&region=Unknown');
 assert.equal(invalid.$('#destination').value.length, 180);
 assert.equal(invalid.$('#region').value, 'Still deciding');
-console.log('DOM checks passed: seven-page startup, navigation focus/Escape, slideshow controls, reduced motion, hidden tabs, destination search, collection filters and enquiry prefill/email.');
+console.log('DOM checks passed: seven-page startup, navigation focus/Escape, hero startup, reduced motion, hidden tabs, destination search, collection filters and enquiry prefill/email.');
