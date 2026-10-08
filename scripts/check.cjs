@@ -3,9 +3,9 @@ const fs = require('node:fs');
 const path = require('node:path');
 
 const root = process.argv[2] ? path.resolve(process.argv[2]) : path.resolve(__dirname, '..');
-const routes = ['domestic', 'international', 'category', 'about', 'contact', 'booking-policies'];
+const routes = ['domestic', 'international', 'category', 'about', 'contact', 'booking-policies', 'kashmir'];
 const pages = ['index.html', '404.html', ...routes.map(route => path.join(route, 'index.html'))];
-assert.equal(pages.length, 8, 'Expected seven content pages and a 404 page');
+assert.equal(pages.length, 9, 'Expected eight content pages and a 404 page');
 const pageImageSets = new Map();
 for (const page of pages) {
   const pagePath = path.join(root, page);

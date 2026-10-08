@@ -1,4 +1,4 @@
-﻿# Pathika Tour & Travels
+# Pathika Tour & Travels
 
 Premium static travel discovery and enquiry website for the `lab-self/pathikatravels` repository.
 
@@ -19,6 +19,7 @@ To preview on Windows after building, run `py -m http.server 8000 --directory di
 
 - `/` - Home
 - `/domestic/` - India destinations
+- `/kashmir/` - Kashmir and Vaishno Devi seasonal packages, 15 September 2026 to 15 March 2027
 - `/international/` - International destinations
 - `/category/` - Filterable travel collections
 - `/about/` - Pathika approach
@@ -26,7 +27,7 @@ To preview on Windows after building, run `py -m http.server 8000 --directory di
 - `/booking-policies/` - Payment and cancellation terms
 - `/404.html` - Not found page
 
-The contact form opens a prefilled email draft to `info@pathikatravels.com`; visitors send it from their email app. Contact details already present in the project are retained. There is no live booking engine or WhatsApp integration.
+The contact form opens a prefilled email draft to `info@pathikatravels.com`; visitors send it from their email app. Visitors can also contact Pathika through the WhatsApp link and follow its Instagram profile. There is no live booking engine.
 
 ## Publish on GitHub Pages
 

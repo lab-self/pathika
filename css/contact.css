@@ -17,7 +17,7 @@
 .contact-postcard img{height:390px;object-fit:cover;border-radius:150px 150px 8px 8px}
 .contact-postcard figcaption{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:16px 6px 4px;font-size:10px;letter-spacing:.14em;text-transform:uppercase}
 .contact-postcard figcaption span:last-child{font:italic 19px var(--serif);letter-spacing:0;text-transform:none;color:#98523a}
-.contact-channels{position:relative;margin-top:-35px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.contact-channels{position:relative;margin-top:-35px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:16px}
 .contact-channel{display:grid;grid-template-columns:42px 1fr 20px;align-items:center;gap:15px;min-height:120px;padding:25px;background:#ffffffdb;border:1px solid #fff;border-radius:14px;backdrop-filter:blur(20px);box-shadow:0 12px 32px #28344309;transition:transform .25s,box-shadow .25s,border-color .25s}
 .contact-channel:hover{transform:translateY(-5px);box-shadow:0 18px 32px #28344312;border-color:#c9b4a6}
 .contact-channel svg{width:23px;height:23px;stroke:currentColor;fill:none;stroke-width:1.5}

@@ -18,10 +18,10 @@ execFileSync(process.execPath, [path.join(__dirname, 'check.cjs')], { stdio: 'in
 if (path.dirname(dist) !== root || path.basename(dist) !== 'dist') throw new Error('Unsafe build output path.');
 fs.rmSync(dist, { recursive: true, force: true });
 fs.mkdirSync(dist, { recursive: true });
-for (const item of ['index.html', '404.html', 'domestic', 'international', 'category', 'about', 'contact', 'booking-policies', 'assets', 'css', 'js', 'robots.txt', 'sitemap.xml', 'site.webmanifest']) {
+for (const item of ['index.html', '404.html', 'domestic', 'international', 'category', 'about', 'contact', 'booking-policies', 'kashmir', 'assets', 'css', 'js', 'robots.txt', 'sitemap.xml', 'site.webmanifest']) {
   fs.cpSync(path.join(root, item), path.join(dist, item), { recursive: true });
 }
-for (const page of ['index.html', 'domestic/index.html', 'international/index.html', 'category/index.html', 'about/index.html', 'contact/index.html', 'booking-policies/index.html']) {
+for (const page of ['index.html', 'domestic/index.html', 'international/index.html', 'category/index.html', 'about/index.html', 'contact/index.html', 'booking-policies/index.html', 'kashmir/index.html']) {
   const file = path.join(dist, page);
   const canonicalPath = page === 'index.html' ? '' : `${page.replace(/\/index\.html$/, '')}/`;
   const canonical = new URL(canonicalPath, siteUrl).href;
@@ -31,7 +31,7 @@ for (const page of ['index.html', 'domestic/index.html', 'international/index.ht
 }
 const notFound = path.join(dist, '404.html');
 fs.writeFileSync(notFound, fs.readFileSync(notFound, 'utf8').replace('<head>', `<head><base href="${siteUrl.href}">`));
-const sitemap = ['','domestic/','international/','category/','about/','contact/','booking-policies/'];
+const sitemap = ['','domestic/','international/','category/','about/','contact/','booking-policies/','kashmir/'];
 fs.writeFileSync(path.join(dist, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${sitemap.map(route=>`  <url><loc>${new URL(route,siteUrl).href}</loc></url>`).join('\n')}\n</urlset>\n`);
 fs.writeFileSync(path.join(dist, 'robots.txt'), `User-agent: *\nAllow: /\nSitemap: ${new URL('sitemap.xml',siteUrl).href}\n`);
 const manifestFile = path.join(dist, 'site.webmanifest');
