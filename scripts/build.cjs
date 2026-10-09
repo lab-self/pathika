@@ -3,7 +3,7 @@ const path = require('node:path');
 const { execFileSync } = require('node:child_process');
 const root = path.resolve(__dirname, '..');
 const dist = path.join(root, 'dist');
-const domain = process.env.CUSTOM_DOMAIN?.trim().toLowerCase();
+const domain = (process.env.CUSTOM_DOMAIN || (fs.existsSync(path.join(root, 'CNAME')) ? fs.readFileSync(path.join(root, 'CNAME'), 'utf8') : '')).trim().toLowerCase();
 if (domain && !/^(?=.{1,253}$)(?:[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?\.)+[a-z]{2,63}$/.test(domain)) {
   throw new Error('CUSTOM_DOMAIN must be a bare DNS name such as www.example.com.');
 }
@@ -18,7 +18,7 @@ execFileSync(process.execPath, [path.join(__dirname, 'check.cjs')], { stdio: 'in
 if (path.dirname(dist) !== root || path.basename(dist) !== 'dist') throw new Error('Unsafe build output path.');
 fs.rmSync(dist, { recursive: true, force: true });
 fs.mkdirSync(dist, { recursive: true });
-for (const item of ['index.html', '404.html', 'domestic', 'international', 'category', 'about', 'contact', 'booking-policies', 'kashmir', 'assets', 'css', 'js', 'robots.txt', 'sitemap.xml', 'site.webmanifest']) {
+for (const item of ['index.html', '404.html', 'CNAME', 'domestic', 'international', 'category', 'about', 'contact', 'booking-policies', 'kashmir', 'assets', 'css', 'js', 'robots.txt', 'sitemap.xml', 'site.webmanifest']) {
   fs.cpSync(path.join(root, item), path.join(dist, item), { recursive: true });
 }
 for (const page of ['index.html', 'domestic/index.html', 'international/index.html', 'category/index.html', 'about/index.html', 'contact/index.html', 'booking-policies/index.html', 'kashmir/index.html']) {

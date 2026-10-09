@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://lab-self.github.io/pathikatravels/</loc></url>
-  <url><loc>https://lab-self.github.io/pathikatravels/domestic/</loc></url>
-  <url><loc>https://lab-self.github.io/pathikatravels/international/</loc></url>
-  <url><loc>https://lab-self.github.io/pathikatravels/category/</loc></url>
-  <url><loc>https://lab-self.github.io/pathikatravels/about/</loc></url>
-  <url><loc>https://lab-self.github.io/pathikatravels/contact/</loc></url>
-  <url><loc>https://lab-self.github.io/pathikatravels/booking-policies/</loc></url>
+  <url><loc>https://www.pathikatravels.com/</loc></url>
+  <url><loc>https://www.pathikatravels.com/domestic/</loc></url>
+  <url><loc>https://www.pathikatravels.com/international/</loc></url>
+  <url><loc>https://www.pathikatravels.com/category/</loc></url>
+  <url><loc>https://www.pathikatravels.com/about/</loc></url>
+  <url><loc>https://www.pathikatravels.com/contact/</loc></url>
+  <url><loc>https://www.pathikatravels.com/booking-policies/</loc></url>
+  <url><loc>https://www.pathikatravels.com/kashmir/</loc></url>
 </urlset>

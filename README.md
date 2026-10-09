@@ -36,35 +36,17 @@ The repository includes `.github/workflows/pages.yml`. It builds and deploys `di
 1. Push the project to `https://github.com/lab-self/pathikatravels`.
 2. In **Settings -> Pages -> Build and deployment**, select **GitHub Actions**.
 3. Push a commit to the default branch, or run **Build and deploy Pathika on GitHub Pages** from the Actions tab. Wait for the green workflow result.
-4. The default site URL is `https://lab-self.github.io/pathikatravels/`.
+4. The primary site URL is `https://www.pathikatravels.com/`.
 
 On GitHub Free the repository must be public for Pages; private repositories require a plan that supports private Pages publishing. See [GitHub Pages availability](https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages#github-pages-availability).
 
-The workflow reads the published site URL from GitHub Pages configuration and uses it for canonical URLs, Open Graph URLs, the sitemap, `robots.txt` and the not-found page base path. You do not need to add Actions variables for the domain.
+## Current custom domain
 
-## Connect a custom domain
+The primary site URL is `https://www.pathikatravels.com/`. The root `CNAME` file is copied into the deployment artifact, and the build uses it to generate canonical URLs, Open Graph URLs, the sitemap and `robots.txt`. The workflow checks that the URL reported by GitHub Pages matches this domain.
 
-Buy or use a domain you own. Using `www` as the primary address is a good option; GitHub can redirect between the apex domain and `www` when both have the correct DNS records.
+In **Settings -> Pages**, keep `www.pathikatravels.com` as the custom domain and HTTPS enabled. The `www` DNS record should be a CNAME to `lab-self.github.io`; DNS currently resolves it to GitHub Pages. The apex `pathikatravels.com` can redirect to `www` at the domain provider.
 
-1. Verify your domain in your GitHub account under **Settings -> Pages** (or the account's Pages domain verification settings). This helps prevent another GitHub user from claiming it.
-2. In this repository, open **Settings -> Pages** and enter the custom domain before editing DNS. For a GitHub Actions publishing workflow, GitHub stores this Pages setting; the workflow does not require a committed `CNAME` file.
-3. At your domain provider, add DNS records. For `www.example.com`, create a `CNAME` record: name `www`, value `lab-self.github.io` (do not add the repository name). For the apex `example.com`, use all four GitHub Pages `A` records below, or the provider's supported `ALIAS`/`ANAME` record. Remove conflicting default parking records.
-
-   | Type | Name | Value |
-   |---|---|---|
-   | A | `@` | `185.199.108.153` |
-   | A | `@` | `185.199.109.153` |
-   | A | `@` | `185.199.110.153` |
-   | A | `@` | `185.199.111.153` |
-   | CNAME | `www` | `lab-self.github.io` |
-
-   GitHub also publishes optional IPv6 `AAAA` records. See the official DNS instructions before adding them.
-
-4. Push a commit or run the workflow again. It reads the domain configured in **Settings -> Pages** and generates matching canonical URLs and sitemap entries. When DNS has propagated and GitHub has issued the certificate, enable **Enforce HTTPS** in **Settings -> Pages**.
-6. Check DNS from Windows with `Resolve-DnsName www.example.com` and `Resolve-DnsName example.com`. DNS updates may take time to propagate.
-
-Replace the example hosts with the domain you own. Do not create wildcard DNS records. GitHub's current instructions are [custom domain setup](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site), [DNS records](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site#configuring-an-apex-domain), and [HTTPS](https://docs.github.com/en/pages/getting-started-with-github-pages/securing-your-github-pages-site-with-https).
-
+GitHub's instructions are [custom domain setup](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site) and [HTTPS](https://docs.github.com/en/pages/getting-started-with-github-pages/securing-your-github-pages-site-with-https).
 ## Images, video and search
 
 Image assets and their sources are listed in [IMAGE-SOURCES.md](IMAGE-SOURCES.md). The site uses 62 distinct 2400 x 1600 photographs with responsive variants. Superseded images and empty asset folders have been removed. The supplied Pathika logo is unchanged.
