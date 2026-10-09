@@ -8,15 +8,15 @@ if (spawnSync('ffmpeg', ['-version'], { stdio: 'ignore' }).status !== 0) {
   process.exit(1);
 }
 const sources = [
-  ['domestic', 'https://videos.pexels.com/video-files/4218249/4218249-hd_1920_1080_30fps.mp4'],
-  ['international', 'https://videos.pexels.com/video-files/4022224/4022224-uhd_3840_2160_25fps.mp4']
+  ['domestic', 'https://cdn.pixabay.com/video/2023/09/20/181376-866506956_large.mp4'],
+  ['international', 'https://cdn.pixabay.com/video/2019/02/19/21528-318978038_large.mp4']
 ];
 const directory = path.join(root, 'assets', 'videos');
 fs.mkdirSync(directory, { recursive: true });
 for (const [route, url] of sources) {
   const target = path.join(directory, `${route}-journey.mp4`);
   const temporary = path.join(directory, `${route}-journey.pending.mp4`);
-  console.log(`Downloading and optimising ${route} footage from Pexels...`);
+  console.log(`Downloading and optimising ${route} footage...`);
   const result = spawnSync('ffmpeg', ['-y', '-rw_timeout', '20000000', '-i', url, '-t', '18', '-an', '-vf', 'scale=1280:720:force_original_aspect_ratio=increase,crop=1280:720,fps=24', '-c:v', 'libx264', '-preset', 'medium', '-crf', '28', '-pix_fmt', 'yuv420p', '-movflags', '+faststart', temporary], { stdio: 'inherit', timeout: 300000 });
   if (result.status !== 0) {
     if (fs.existsSync(temporary)) fs.unlinkSync(temporary);

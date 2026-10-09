@@ -43,6 +43,7 @@ for (const [route, poster] of [['domestic', 'domestic/himalayan-valley'], ['inte
   const media = `assets/videos/${route}-journey.mp4`;
   if (!fs.existsSync(path.join(root, media))) continue;
   const page = path.join(dist, route, 'index.html');
+  if (fs.readFileSync(page, 'utf8').includes('<video ')) continue;
   const video = `<video data-src="../${media}" poster="../assets/images/${poster}.jpg" autoplay muted loop playsinline preload="metadata" aria-hidden="true" tabindex="-1"></video>`;
   fs.writeFileSync(page, fs.readFileSync(page, 'utf8').replace('<div class="hero-bg">', `<div class="hero-bg">${video}`));
 }

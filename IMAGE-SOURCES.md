@@ -73,13 +73,11 @@ Each HD master is 2400 x 1600 pixels. Local 480px, 768px and 1200px JPEG variant
 
 Superseded image assets have been removed. The original coloured logo is preserved at `assets/icons/pathika-logo.png`, without a recolouring filter.
 
-## Selected video sources — not downloaded yet
+## Video sources
 
-Source pages and the [Pexels License](https://www.pexels.com/license/) were checked on 2026-10-07. Pexels permits free website/commercial use and modification, with no required attribution; it prohibits implying endorsement and certain other uses. These are decorative landscape clips, not representations of Pathika-owned properties or partnerships. The files below do **not** currently exist and are not referenced by the rendered website. `scripts/download-videos.cjs` downloads from the source CDN and optimises them when run with FFmpeg and network access; `scripts/build.cjs` includes only locally available clips.
+The Domestic and International heroes use the Pixabay clips below. Pixabay marks both free for use under its Content License. The files are optimised by `scripts/download-videos.cjs` when FFmpeg and network access are available, and `scripts/build.cjs` includes clips present locally.
 
-| Intended local asset | Original source / creator | Source page | Original download URL | License | Intended use |
+| Local asset | Source / creator | Source page | Download URL | License | Use |
 |---|---|---|---|---|---|
-| `assets/videos/domestic-journey.mp4` | Pexels / Outcast | [Drone Footage Of Mountain](https://www.pexels.com/video/drone-footage-of-mountain-4218249/) | https://videos.pexels.com/video-files/4218249/4218249-hd_1920_1080_30fps.mp4 | [Pexels License](https://www.pexels.com/license/) | Domestic hero: Himalayan valley |
-| `assets/videos/international-journey.mp4` | Pexels / Videographer Shiyaz | [An Aerial Shot of a Beach Resort in Maldives](https://www.pexels.com/video/an-aerial-shot-of-a-beach-resort-in-maldives-4022224/) | https://videos.pexels.com/video-files/4022224/4022224-uhd_3840_2160_25fps.mp4 | [Pexels License](https://www.pexels.com/license/) | International hero: Maldives coast |
-
-Intended local output: 18 seconds, 1280×720, 24fps, H.264 MP4, no audio, fast-start metadata. The international original is 4K; it is transcoded rather than published in its original size. Actual output size and playback must be checked after a successful download.
+| `assets/videos/domestic-journey.mp4` | Pixabay / NickyPe | [Boat, Man, Fishing Boat](https://pixabay.com/videos/boat-man-fishing-boat-wooden-boat-181376/) | https://cdn.pixabay.com/video/2023/09/20/181376-866506956_large.mp4 | [Pixabay Content License](https://pixabay.com/service/license-summary/) | Domestic hero |
+| `assets/videos/international-journey.mp4` | Pixabay / LAWJR | [Ocean, Sailing, Blue](https://pixabay.com/videos/ocean-sailing-blue-waves-horizon-21528/) | https://cdn.pixabay.com/video/2019/02/19/21528-318978038_large.mp4 | [Pixabay Content License](https://pixabay.com/service/license-summary/) | International hero |
